@@ -2,7 +2,7 @@
 Organize all information for system setup and maintenance 
  
 ## System Setup
-- [ ] [Install mint](https://ubuntu.com/download/desktop)
+- [ ] [Install mint](https://linuxmint.com)
 - [ ] [Install git](https://git-scm.com/download/linux)
 - [ ] run setup script
 
@@ -13,3 +13,6 @@ common tasks like:
 - dealing with file organization
 - backups
 - media management
+
+### Useful resources
+- [Linux Mint](https://linuxmint.com)
