@@ -1,3 +1,15 @@
+# check how long since last modified the script
+# PASSED=$(stat -c %Y scripts/get_system_info.sh)
+# NOW=$(date +%s)
+# DIFF=$(($NOW - $PASSED))
+# if [ $DIFF -lt 86400 ]; then
+#     echo "get_system_info.sh was modified less than 24 hours ago, are you sure you want to run this script?"
+#     read -p "y/n: " answer
+#     if [ $answer != "y" ]; then
+#         exit 1
+#     fi
+# fi
+
 # get current de config
 gsettings list-recursively org.gnome.desktop.interface > config/gnome_desktop_interface.txt
 

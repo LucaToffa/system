@@ -1,6 +1,22 @@
 # untested distro setup script
 # mostly apt installs
 # remenber to sanity and error check every line
+
+# check how long since last modified the script
+PASSED=$(stat -c %Y scripts/setup_system.sh)
+NOW=$(date +%s)
+DIFF=$(($NOW - $PASSED))
+if [ $DIFF -gt 86400 ]; then
+    echo "setup_system.sh was modified more than 24 hours ago, are you sure you want to run this script?"
+    read -p "y/n: " answer
+    if [ $answer != "y" ]; then
+        exit 1
+    fi
+else
+    echo "setup_system.sh was modified less than 24 hours ago, continuing..."
+    exit 1 # remove this line if you want to run the script for real
+fi
+
 MAIN_PROGAMS="git gcc g++ cmake make chromium telegam-desktop visual-studio-code"
 PYTHON_STUFF="python3 python3-pip python3-venv"
 echo "starting setup"
