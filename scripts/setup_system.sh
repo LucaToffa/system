@@ -42,3 +42,17 @@ echo "change chromium settings..."
 # add to /usr/share/applications/chromium-browser.desktop   
 # --enable-features=TouchpadOverscrollHistoryNavigation
 # at Exec=chromium %U
+
+# setup terminal
+echo "setup terminal..."
+UUID=gsettings get org.gnome.Terminal.ProfilesList default
+dconf load /org/gnome/terminal/legacy/profiles:/:${UUID}/ < config/terminal-settings.conf
+
+# if making a new profile
+# new_uuid=$(uuidgen)
+# gsettings set org.gnome.Terminal.ProfilesList list "['$new_uuid']"
+
+# set wallpaper not with gnome.desktop.background but with nemo
+# gsettings set org.gnome.desktop.background picture-uri $WALLPAPER_PATH
+cp imgs/$WALLPAPER_NAME $WALLPAPER_PATH
+gsettings set org.cinnamon.desktop.background picture-uri < config/wallpaper.txt
